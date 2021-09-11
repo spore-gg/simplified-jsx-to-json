@@ -264,8 +264,8 @@ const jsxToJson = (input) => {
 
   let parsed = null;
   try {
-    parsed = acorn.Parser.extend(jsx({ allowNamespaces: false })).parse(
-      `<root>${input}</root>`,
+    parsed = acorn.Parser.extend(jsx({ allowNamespaces: false, sourceType: 'module' })).parse(
+      input
     );
   } catch (e) {
     throw new SyntaxError(
