@@ -173,9 +173,10 @@ const getAttributeValue = (expression) => {
           getAttributeValue(expression.right)
         );
       default:
-        throw new SyntaxError(
+        console.log(
           `BinaryExpression with "${expression.operator}" is not supported`,
         );
+        return expression;
     }
   }
 
@@ -188,18 +189,20 @@ const getAttributeValue = (expression) => {
       case '~':
         return ~getAttributeValue(expression.argument);
       default:
-        throw new SyntaxError(
+        console.log(
           `UnaryExpression with "${expression.operator}" is not supported`,
         );
+        return expression.argument;
     }
   }
-
+  
   if (expression.type === 'JSXElement') {
     return getNode(expression);
   }
 
   // Unsupported type
-  throw new SyntaxError(`${expression.type} is not supported`);
+  console.log(`${expression.type} is not supported`);
+  return expression;
 };
 
 const getNode = (node) => {
@@ -250,7 +253,8 @@ const getNode = (node) => {
   }
 
   // Unsupported type
-  throw new SyntaxError(`${node.type} is not supported`);
+  console.log(`${node.type} is not supported`);
+  return node
 };
 
 const jsxToJson = (input) => {
