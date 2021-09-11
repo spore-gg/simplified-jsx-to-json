@@ -285,4 +285,4 @@ const jsxToJson = (input) => {
   return [];
 };
 
-module.exports = jsxToJson;
+module.exports = { getNode, jsxToJson };
