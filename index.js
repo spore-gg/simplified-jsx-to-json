@@ -173,9 +173,9 @@ const getAttributeValue = (expression) => {
           getAttributeValue(expression.right)
         );
       default:
-        console.log(
-          `BinaryExpression with "${expression.operator}" is not supported`,
-        );
+        // console.log(
+        //   `BinaryExpression with "${expression.operator}" is not supported`,
+        // );
         return expression;
     }
   }
@@ -189,9 +189,9 @@ const getAttributeValue = (expression) => {
       case '~':
         return ~getAttributeValue(expression.argument);
       default:
-        console.log(
-          `UnaryExpression with "${expression.operator}" is not supported`,
-        );
+        // console.log(
+        //   `UnaryExpression with "${expression.operator}" is not supported`,
+        // );
         return expression.argument;
     }
   }
@@ -201,7 +201,7 @@ const getAttributeValue = (expression) => {
   }
 
   // Unsupported type
-  console.log(`${expression.type} is not supported`);
+  // console.log(`${expression.type} is not supported`);
   return expression;
 };
 
@@ -253,7 +253,7 @@ const getNode = (node) => {
   }
 
   // Unsupported type
-  console.log(`${node.type} is not supported`);
+  // console.log(`${node.type} is not supported`);
   return node
 };
 
